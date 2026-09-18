@@ -55,9 +55,9 @@
   a{color:inherit;}
 
   .wrap{
-    max-width:1280px;
+    max-width:1760px;
     margin:0 auto;
-    padding:28px 24px 64px;
+    padding:14px 20px 22px;
   }
 
   header.top{
@@ -66,145 +66,131 @@
     justify-content:space-between;
     gap:16px;
     flex-wrap:wrap;
-    margin-bottom:22px;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--border);
+    margin-bottom:10px;
+  }
+  header.top .title-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:baseline;
   }
   header.top .eyebrow{
-    font-size:12px;
+    font-size:11px;
     letter-spacing:.09em;
     text-transform:uppercase;
     color:var(--muted);
-    margin:0 0 4px;
+    margin:0;
     font-weight:600;
   }
   header.top h1{
     font-family:"Archivo",sans-serif;
     font-weight:700;
-    font-size:26px;
+    font-size:18px;
     margin:0;
     letter-spacing:-.01em;
   }
-  header.top p.sub{
-    margin:6px 0 0;
-    color:var(--muted);
-    font-size:14px;
-    max-width:46ch;
-  }
   header.top .meta{
     text-align:right;
-    font-size:13px;
+    font-size:12px;
     color:var(--muted);
-    line-height:1.5;
+    line-height:1.4;
   }
 
-  .layout{
-    display:grid;
-    grid-template-columns:230px 1fr;
-    gap:24px;
-  }
-  @media (max-width:820px){
-    .layout{grid-template-columns:1fr;}
-  }
-
-  /* Room rail */
-  .rooms h2{
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    color:var(--muted);
-    margin:0 0 10px;
-    font-weight:700;
+  /* Room strip: horizontal, compact */
+  .rooms{
+    margin-bottom:10px;
   }
   .room-list{
     display:flex;
-    flex-direction:column;
     gap:8px;
     list-style:none;
     margin:0;
-    padding:0;
-  }
-  @media (max-width:820px){
-    .room-list{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-    }
+    padding:0 0 4px;
+    overflow-x:auto;
   }
   .room-btn{
     display:flex;
     align-items:center;
-    gap:10px;
-    width:100%;
+    gap:8px;
+    flex:none;
     text-align:left;
-    padding:8px;
-    border-radius:10px;
-    border:1px solid transparent;
-    background:transparent;
+    padding:5px 10px 5px 5px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    background:var(--surface);
     cursor:pointer;
     color:var(--ink);
     font:inherit;
+    white-space:nowrap;
   }
   .room-btn img{
-    width:52px;
-    height:38px;
+    width:44px;
+    height:32px;
     object-fit:cover;
-    border-radius:6px;
+    border-radius:999px;
     border:1px solid var(--border);
     flex:none;
     background:var(--surface-2);
   }
   .room-btn span{
-    font-size:13.5px;
+    font-size:13px;
     font-weight:600;
-    line-height:1.25;
+    line-height:1.2;
   }
-  .room-btn:hover{background:var(--surface-2);}
+  .room-btn:hover{border-color:var(--accent);}
   .room-btn.active{
-    background:var(--surface);
-    border-color:var(--border);
-    box-shadow:0 1px 0 rgba(0,0,0,.02);
+    background:var(--accent);
+    border-color:var(--accent);
   }
-  .room-btn.active span{color:var(--accent);}
+  .room-btn.active span{color:var(--accent-ink);}
+  .room-btn.active img{border-color:var(--accent-ink);}
   .room-btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   /* Main panel */
   .panel{
     background:var(--surface);
     border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+    border-radius:14px;
+    padding:12px;
   }
 
   .controls{
     display:flex;
     flex-wrap:wrap;
-    gap:18px;
-    align-items:flex-start;
+    gap:10px 24px;
+    align-items:center;
     justify-content:space-between;
-    margin-bottom:16px;
+    margin-bottom:10px;
   }
 
+  .control-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
   .control-group h2{
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:.08em;
     color:var(--muted);
-    margin:0 0 8px;
+    margin:0;
     font-weight:700;
+    flex:none;
   }
   .pill-row{
     display:flex;
-    gap:8px;
+    gap:6px;
     flex-wrap:wrap;
   }
   .pill{
-    padding:7px 14px;
+    padding:6px 13px;
     border-radius:999px;
     border:1px solid var(--border);
     background:var(--surface-2);
     color:var(--ink);
     font:inherit;
-    font-size:13.5px;
+    font-size:13px;
     font-weight:600;
     cursor:pointer;
   }
@@ -219,11 +205,11 @@
 
   .stage{
     position:relative;
-    border-radius:12px;
+    border-radius:10px;
     overflow:hidden;
     border:1px solid var(--border);
     background:var(--surface-2);
-    aspect-ratio:1400/1083;
+    height:min(78vh, 1100px);
   }
   .stage img{
     width:100%;
@@ -233,13 +219,13 @@
   }
   .stage .tag{
     position:absolute;
-    left:14px;
-    bottom:14px;
+    left:16px;
+    bottom:16px;
     background:rgba(24,22,15,.72);
     color:#f4f1ea;
-    padding:7px 12px;
+    padding:8px 14px;
     border-radius:8px;
-    font-size:13px;
+    font-size:14px;
     font-weight:600;
     letter-spacing:.01em;
     backdrop-filter:blur(2px);
@@ -256,53 +242,66 @@
     padding:24px;
   }
 
-  /* Compare strip */
+  /* Compare strip: compact horizontal row of swatch thumbs */
   .compare{
-    margin-top:16px;
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
   }
   .compare h2{
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:.08em;
     color:var(--muted);
-    margin:0 0 8px;
+    margin:0;
     font-weight:700;
+    flex:none;
   }
   .compare-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:10px;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    flex:1;
   }
   .compare-item{
-    border-radius:10px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    flex:none;
+    border-radius:999px;
     overflow:hidden;
     border:2px solid var(--border);
     cursor:pointer;
-    background:none;
-    padding:0;
+    background:var(--surface);
+    padding:3px 12px 3px 3px;
     text-align:left;
     color:var(--ink);
     font:inherit;
   }
   .compare-item img{
-    width:100%;
-    aspect-ratio:4/3;
+    width:38px;
+    height:28px;
+    border-radius:999px;
     object-fit:cover;
     display:block;
+    flex:none;
   }
   .compare-item .cap{
     font-size:12px;
     font-weight:600;
-    padding:6px 8px;
+    white-space:nowrap;
   }
   .compare-item.current{border-color:var(--accent);}
+  .compare-item.current .cap{color:var(--accent);}
   .compare-item:focus-visible{outline:2px solid var(--focus);outline-offset:2px;}
 
   footer{
-    margin-top:28px;
+    margin-top:12px;
     color:var(--muted);
-    font-size:12.5px;
-    line-height:1.6;
+    font-size:11.5px;
+    line-height:1.5;
   }
 </style>
 
@@ -314,48 +313,39 @@
 <div class="wrap">
 
   <header class="top">
-    <div>
-      <p class="eyebrow">Hillcrest Community Resource Center</p>
+    <div class="title-row">
       <h1 class="display">Carpet Walkthrough</h1>
-      <p class="sub">Bentley Mills renderings of the CRC's actual rooms — pick a space, then compare carpet styles and colorways side by side.</p>
+      <span class="eyebrow">Hillcrest Community Resource Center</span>
     </div>
-    <div class="meta">
-      3 styles · 6 colorways<br>
-      Not every colorway was rendered in every room
-    </div>
+    <div class="meta">3 styles · 3 colorways · Bentley Mills</div>
   </header>
 
-  <div class="layout">
+  <nav class="rooms">
+    <ul class="room-list" id="roomList"></ul>
+  </nav>
 
-    <nav class="rooms">
-      <h2>Space</h2>
-      <ul class="room-list" id="roomList"></ul>
-    </nav>
-
-    <main class="panel">
-      <div class="controls">
-        <div class="control-group">
-          <h2>Carpet style</h2>
-          <div class="pill-row" id="styleRow"></div>
-        </div>
-        <div class="control-group">
-          <h2>Colorway</h2>
-          <div class="pill-row" id="colorRow"></div>
-        </div>
+  <main class="panel">
+    <div class="controls">
+      <div class="control-group">
+        <h2>Style</h2>
+        <div class="pill-row" id="styleRow"></div>
       </div>
-
-      <div class="stage" id="stage">
-        <img id="stageImg" alt="">
-        <div class="tag" id="stageTag"></div>
+      <div class="control-group">
+        <h2>Colorway</h2>
+        <div class="pill-row" id="colorRow"></div>
       </div>
+    </div>
 
-      <div class="compare">
-        <h2>All colorways in this space &amp; style</h2>
-        <div class="compare-grid" id="compareGrid"></div>
-      </div>
-    </main>
+    <div class="stage" id="stage">
+      <img id="stageImg" alt="">
+      <div class="tag" id="stageTag"></div>
+    </div>
 
-  </div>
+    <div class="compare">
+      <h2>Compare colorways</h2>
+      <div class="compare-grid" id="compareGrid"></div>
+    </div>
+  </main>
 
   <footer>
     Renderings courtesy of Bentley Mills. Generated for internal review by the Hillcrest facilities team — not for distribution outside the CRC building committee.
